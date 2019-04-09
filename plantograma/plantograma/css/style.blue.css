@@ -1869,18 +1869,18 @@ select option {
   position: relative;
 }
 
-.login-page::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: -1;
- background: white;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+    .login-page::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: -1;
+        background: #828282;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 
 .login-page .container {
   min-height: 100vh;

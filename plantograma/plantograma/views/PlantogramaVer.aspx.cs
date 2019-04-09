@@ -322,7 +322,7 @@ namespace plantograma.views
             lblogitudPieDerecho.Text = Convert.ToString(plantogramaEntidds.LongPieXD + " X" + plantogramaEntidds.LongPieYD);
             metodoDerecho = plantogramaEntidds.metodoD;
             //metodo2
-            lbIADerechoM2.Text= Convert.ToString(plantogramaEntidds.aID);
+            lbIADerechoM2.Text = Convert.ToString(plantogramaEntidds.aID);
             lblogitudPieDerechoM2.Text = lblogitudPieDerecho.Text;
             descripcionDerechoM2.Text = Convert.ToString(plantogramaEntidds.diagnosticaD);
         }
@@ -385,7 +385,9 @@ namespace plantograma.views
 
         protected void btnImprimir_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("print");
+            LNPlantogramaEntidads ln = new LNPlantogramaEntidads();
+            plantogramaEntidds = ln.PlantoID(plantogramaEntidds);
+            System.Diagnostics.Debug.WriteLine("print in plantograma ver...");
             string cadenaFinal = "";
 
 
@@ -408,21 +410,7 @@ namespace plantograma.views
             string pathImgAnlD = System.Web.HttpContext.Current.Server.MapPath("/img/" + plantogramaEntidds.imgDerAnlss);
             string pathImgAnlIz = System.Web.HttpContext.Current.Server.MapPath("/img/" + plantogramaEntidds.imgIzqAnlss);
 
-            cadenaFinal += "<TABLE  ><TR> <TD BGCOLOR=#F3E2A9 >PIE IZQUIERDO </TD> <TD BGCOLOR=#F3E2A9> PIE DERECHO</TD> </TR>  <BR/>" +
-                "<TR>  <TD BGCOLOR=#F5ECCE>  <img src='" + pathImgIz + "' Height='380' Width='280' /></TD><TD BGCOLOR=#F3E2A9>   <img src='" + pathImgD + "' Height='380' Width='280' />  </TD> </TR>" +
-                " <TR> <TD> </TD>  <TD> </TD> </TR>" +
-                  "<TR>  <TD BGCOLOR=#F5ECCE>  <img src='" + pathImgAnlIz + "' Height='380 Width='280' /> </TD><TD BGCOLOR=#F3E2A9>  <img src='" + pathImgAnlD + "' Height='380' Width='280' />  </TD> </TR>" +
-                   " <TR> <TD> </TD>  <TD> </TD> </TR>" +
-                                         "<TR>  <TD BGCOLOR=#F5ECCE> X:  " + plantogramaEntidds.x + "</TD><TD BGCOLOR=#F3E2A9>X: " + plantogramaEntidds.xD + " </TD> </TR>" +
-                                         "<TR>  <TD BGCOLOR=#F5ECCE>Y: " + plantogramaEntidds.y + " </TD><TD BGCOLOR=#F3E2A9>Y:  " + plantogramaEntidds.yD + " </TD> </TR>" +
-                                         "<TR> <TD BGCOLOR=#F5ECCE> Medida Fundamenta: " + plantogramaEntidds.mF + " </TD><TD BGCOLOR=#F3E2A9>Medida Fundamental: " + plantogramaEntidds.mFD + "</TD> </TR>" +
-                                         "<TR>  <TD BGCOLOR=#F5ECCE>Arco Interno: " + plantogramaEntidds.aI + " </TD><TD BGCOLOR=#F3E2A9>Arco Interno:" + plantogramaEntidds.aID + " </TD> </TR>" +
-                                          "<TR>  <TD BGCOLOR=#F5ECCE>Ta: " + plantogramaEntidds.tA + " </TD><TD BGCOLOR=#F3E2A9>Ta: " + plantogramaEntidds.tAD + "</TD> </TR>" +
-                                         "<TR>  <TD BGCOLOR=#F5ECCE>Long Pie Y: " + plantogramaEntidds.LongPieY + " </TD><TD BGCOLOR=#F3E2A9>Long Pie Y: " + plantogramaEntidds.LongPieYD + " </TD> </TR>" +
-                                         "<TR>  <TD BGCOLOR=#F5ECCE>Long Pie X: " + plantogramaEntidds.LongPieX + "</TD><TD BGCOLOR=#F3E2A9>Long Pie X :" + plantogramaEntidds.LongPieXD + " </TD> </TR>" +
-                                         "<TR>  <TD BGCOLOR=#F5ECCE>Resultado:" + plantogramaEntidds.resultado + "  </TD><TD BGCOLOR=#F3E2A9>Resultado:" + plantogramaEntidds.resultadoD + " </TD> </TR>" +
-                                        "<TR>  <TD BGCOLOR=#F5ECCE>Diagnostico: " + plantogramaEntidds.diagnostica + " </TD ><TD BGCOLOR=#F3E2A9>Dianostico: " + plantogramaEntidds.diagnosticaD + "</TD> </TR>" +
-                                         "</TABLE> <br/>  <br/> <br/> <br/> <br/> ";
+            cadenaFinal += addtableResultado(plantogramaEntidds, pathImgIz, pathImgD, pathImgAnlIz, pathImgAnlD);
 
             string path1 = System.Web.HttpContext.Current.Server.MapPath("/img/pie.jpg");
             cadenaFinal += "<img src='" + path1 + "' Height='100' Width='570' /><br/><br/>";
@@ -457,6 +445,66 @@ namespace plantograma.views
                 lnP.UpdatePlan(plantogramaEntidds);//actualizo
                 plantogramaEntidds = lnP.PlantoID(plantogramaEntidds);
             }
+        }
+        public string tipoMetodo(int metodo)
+        {
+            string cadena = "";
+            if (metodo == 0)
+            {
+                cadena = "Hernández Corvo";
+            }
+            else
+            {
+                cadena += "Cavanagh y Rodgers";
+            }
+            return cadena;
+        }
+        public string verificarNombre(string name, int metodo)
+        {
+            string cadena = "";
+            if (metodo == 0)
+            {
+                cadena = name;
+            }
+            return cadena;
+        }
+
+        public string tipoMetodoIAorAI(int metodo, float val)
+        {
+            string cadena = "";
+            if (metodo == 0)
+            {
+                cadena = "Arco Interno: " + val;
+            }
+            else
+            {
+                cadena += "IA: " + val;
+            }
+            return cadena;
+        }
+        public string addtableResultado(PlantogramaEntidds plantogramaEntidds, string pathImgIz, string pathImgD, string pathImgAnlIz, string pathImgAnlD)
+        {
+            string cadenaFinal = "";
+            cadenaFinal += "<TABLE  ><TR> <TD BGCOLOR=#F3E2A9 >PIE IZQUIERDO </TD> <TD BGCOLOR=#F3E2A9> PIE DERECHO</TD> </TR>  <BR/>" +
+           "<TR>  <TD BGCOLOR=#F5ECCE>  <img src='" + pathImgIz + "' Height='380' Width='280' /></TD><TD BGCOLOR=#F3E2A9>   <img src='" + pathImgD + "' Height='380' Width='280' />  </TD> </TR>" +
+           " <TR> <TD> </TD>  <TD> </TD> </TR>" +
+             "<TR>  <TD BGCOLOR=#F5ECCE>  <img src='" + pathImgAnlIz + "' Height='380 Width='280' /> </TD><TD BGCOLOR=#F3E2A9>  <img src='" + pathImgAnlD + "' Height='380' Width='280' />  </TD> </TR>" +
+              " <TR> <TD> </TD>  <TD> </TD> </TR>";
+
+            cadenaFinal += "<TR> <TD BGCOLOR=#F5ECCE>Método:" + tipoMetodo(plantogramaEntidds.metodo) + " </TD>  <TD BGCOLOR=#F3E2A9>Método: " + tipoMetodo(plantogramaEntidds.metodoD) + " </TD> </TR>";
+
+            cadenaFinal += "<TR>  <TD BGCOLOR=#F5ECCE>" + verificarNombre("X: ", plantogramaEntidds.metodo) + plantogramaEntidds.x + "</TD><TD BGCOLOR=#F3E2A9>" + verificarNombre("X: ", plantogramaEntidds.metodoD) + plantogramaEntidds.xD + " </TD> </TR>" +
+                                         "<TR>  <TD BGCOLOR=#F5ECCE>" + verificarNombre("Y: ", plantogramaEntidds.metodo) + plantogramaEntidds.y + " </TD><TD BGCOLOR=#F3E2A9>" + verificarNombre("Y: ", plantogramaEntidds.metodoD) + plantogramaEntidds.yD + " </TD> </TR>" +
+                                         "<TR> <TD BGCOLOR=#F5ECCE> " + verificarNombre("Medida Fundamenta: ", plantogramaEntidds.metodo) + plantogramaEntidds.mF + " </TD><TD BGCOLOR=#F3E2A9> " + verificarNombre("Medida Fundamental: ", plantogramaEntidds.metodoD) + plantogramaEntidds.mFD + "</TD> </TR>" +
+                                         "<TR>  <TD BGCOLOR=#F5ECCE>" + tipoMetodoIAorAI(plantogramaEntidds.metodo, plantogramaEntidds.aI) + " </TD><TD BGCOLOR=#F3E2A9>" + tipoMetodoIAorAI(plantogramaEntidds.metodoD, plantogramaEntidds.aID) + " </TD> </TR>" +
+                                          "<TR>  <TD BGCOLOR=#F5ECCE>" + verificarNombre("Ta:", plantogramaEntidds.metodo) + plantogramaEntidds.tA + " </TD><TD BGCOLOR=#F3E2A9>" + verificarNombre("Ta:", plantogramaEntidds.metodoD) + plantogramaEntidds.tAD + "</TD> </TR>" +
+                                         "<TR>  <TD BGCOLOR=#F5ECCE>Long Pie Y: " + plantogramaEntidds.LongPieY + " </TD><TD BGCOLOR=#F3E2A9>Long Pie Y: " + plantogramaEntidds.LongPieYD + " </TD> </TR>" +
+                                         "<TR>  <TD BGCOLOR=#F5ECCE>Long Pie X: " + plantogramaEntidds.LongPieX + "</TD><TD BGCOLOR=#F3E2A9>Long Pie X :" + plantogramaEntidds.LongPieXD + " </TD> </TR>" +
+                                         "<TR>  <TD BGCOLOR=#F5ECCE>" + verificarNombre("Resultado: ", plantogramaEntidds.metodo) + plantogramaEntidds.resultado + "  </TD><TD BGCOLOR=#F3E2A9>" + verificarNombre("Resultado: ", plantogramaEntidds.metodoD) + plantogramaEntidds.resultadoD + " </TD> </TR>" +
+                                        "<TR>  <TD BGCOLOR=#F5ECCE>Diagnostico: " + plantogramaEntidds.diagnostica + " </TD ><TD BGCOLOR=#F3E2A9>Dianostico: " + plantogramaEntidds.diagnosticaD + "</TD> </TR>" +
+                                         "</TABLE> <br/>  <br/> <br/> <br/> <br/> ";
+
+            return cadenaFinal;
         }
     }
 
