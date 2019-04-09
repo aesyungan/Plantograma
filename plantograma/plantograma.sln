@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plantograma", "plantograma\plantograma.csproj", "{B02A47FB-962C-4C84-8991-43B082963EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "ClassLibrary2\Entidades.csproj", "{7B2189FE-819C-4E59-B2E4-228C850C9FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADato", "ADato\ADato.csproj", "{8A29BAA5-67E2-4750-869D-252FA3570121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaNegocio", "LogicaNegocio\LogicaNegocio.csproj", "{4E6431BC-48E0-44EA-9E17-56D2172499E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "service", "service\service.csproj", "{F64F352E-5891-4E07-96D1-BD064626F08D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B02A47FB-962C-4C84-8991-43B082963EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B02A47FB-962C-4C84-8991-43B082963EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B02A47FB-962C-4C84-8991-43B082963EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B02A47FB-962C-4C84-8991-43B082963EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2189FE-819C-4E59-B2E4-228C850C9FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2189FE-819C-4E59-B2E4-228C850C9FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2189FE-819C-4E59-B2E4-228C850C9FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2189FE-819C-4E59-B2E4-228C850C9FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A29BAA5-67E2-4750-869D-252FA3570121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A29BAA5-67E2-4750-869D-252FA3570121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A29BAA5-67E2-4750-869D-252FA3570121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A29BAA5-67E2-4750-869D-252FA3570121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6431BC-48E0-44EA-9E17-56D2172499E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6431BC-48E0-44EA-9E17-56D2172499E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6431BC-48E0-44EA-9E17-56D2172499E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6431BC-48E0-44EA-9E17-56D2172499E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64F352E-5891-4E07-96D1-BD064626F08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64F352E-5891-4E07-96D1-BD064626F08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64F352E-5891-4E07-96D1-BD064626F08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64F352E-5891-4E07-96D1-BD064626F08D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F78D936A-3997-4E31-911E-A366D7FEA67E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://plantograma.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ClassLibrary2\\Entidades.csproj
+		SccProjectName1 = ClassLibrary2
+		SccLocalPath1 = ClassLibrary2
+		SccProjectUniqueName2 = plantograma\\plantograma.csproj
+		SccProjectName2 = plantograma
+		SccLocalPath2 = plantograma
+		SccProjectUniqueName3 = ADato\\ADato.csproj
+		SccProjectName3 = ADato
+		SccLocalPath3 = ADato
+		SccProjectUniqueName4 = LogicaNegocio\\LogicaNegocio.csproj
+		SccProjectName4 = LogicaNegocio
+		SccLocalPath4 = LogicaNegocio
+		SccProjectUniqueName5 = service\\service.csproj
+		SccProjectName5 = service
+		SccLocalPath5 = service
+	EndGlobalSection
+EndGlobal

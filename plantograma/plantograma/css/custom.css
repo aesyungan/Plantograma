@@ -1,0 +1,5 @@
+/* your styles go here */
+.border-analisis {
+    border: 2px solid #ccc;
+    cursor: crosshair;
+}

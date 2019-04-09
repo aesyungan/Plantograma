@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E6431BC-48E0-44EA-9E17-56D2172499E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicaNegocio</RootNamespace>
+    <AssemblyName>LogicaNegocio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AfiliadoPacienteLN.cs" />
+    <Compile Include="AutoidetificacionLN.cs" />
+    <Compile Include="CantonLN.cs" />
+    <Compile Include="CodigoMPSLN.cs" />
+    <Compile Include="EspecialidadLN.cs" />
+    <Compile Include="FormacionProfecionalLN.cs" />
+    <Compile Include="GrupoPrioritarioLN.cs" />
+    <Compile Include="InstitucionSistemaLN.cs" />
+    <Compile Include="LNAsignarGrupo.cs" />
+    <Compile Include="LNGrupo.cs" />
+    <Compile Include="LNPlantogramaEntidads.cs" />
+    <Compile Include="LNResultado.cs" />
+    <Compile Include="LNUsuario.cs" />
+    <Compile Include="LugarAtencionLN.cs" />
+    <Compile Include="NacionalidadLN.cs" />
+    <Compile Include="PacienteLN.cs" />
+    <Compile Include="ParroquiaLN.cs" />
+    <Compile Include="ProfecionalLN.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinciaLN.cs" />
+    <Compile Include="SexoLN.cs" />
+    <Compile Include="TipoAnalisisLN.cs" />
+    <Compile Include="TipoEstableLN.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADato\ADato.csproj">
+      <Project>{8a29baa5-67e2-4750-869d-252fa3570121}</Project>
+      <Name>ADato</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary2\Entidades.csproj">
+      <Project>{7b2189fe-819c-4e59-b2e4-228c850c9fa8}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

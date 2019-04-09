@@ -1,0 +1,416 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminDashboard.master.cs" Inherits="plantograma.AdminDashboard" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.blue.css">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/app/app.js"></script>
+    <script src="../js/tether.min.js"></script>
+    <script src="../js/jquery.cookie.js"> </script>
+    <script src="../js/jquery.validate.min.js"></script>
+
+    <script src="../js/front.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <%--todos los usuarios--%>
+    <link href="css/AllUsers.css" rel="stylesheet" />
+    <%--todos los Grupos--%>
+    <link href="css/Grupo.css" rel="stylesheet" />
+    <!-- app for me-->
+
+    <script src="../js/jquery.finger.js"></script>
+    <script src="../js/front.js"></script>
+    <%-- alertas --%>
+
+    <script src="../js/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/app/appAlerts.js"></script>
+    <script src="../js/app/cutIzquierdo.js"></script>
+     <script src="../js/app/cutIzderecho.js"></script>
+    <%--alertas fin--%>
+    <style>
+        .border-analisis {
+           
+            cursor: crosshair;
+        }
+
+        .none-display {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%-- inicio dashboard--%>
+            <div class="page home-page">
+                <!-- Main Navbar-->
+                <header class="header">
+                    <nav class="navbar" style="z-index: 1!important;">
+                        <!-- Search Box-->
+                        <div class="search-box">
+                            <button class="dismiss"><i class="icon-close"></i></button>
+                            <form id="searchForm" action="#" role="search">
+                                <input type="search" placeholder="What are you looking for..." class="form-control">
+                            </form>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                                <!-- Navbar Header-->
+                                <div class="navbar-header">
+                                    <!-- Navbar Brand -->
+                                    <a href="HomeAdmin" class="navbar-brand">
+                                        <div class="brand-text brand-big hidden-lg-down"><span>System </span><strong>Plantograma</strong></div>
+                                        <div class="brand-text brand-small"><strong>Sp</strong></div>
+                                    </a>
+                                    <!-- Toggle Button-->
+                                    <a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                                </div>
+                                <!-- Navbar Menu -->
+                                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                                    <!-- Search-->
+                                    <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                                    <!-- Notifications-->
+                                    <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">0</span></a>
+                                        <ul aria-labelledby="notifications" class="dropdown-menu">
+                                            <%-- <li><a rel="nofollow" href="#" class="dropdown-item">
+                                                <div class="notification">
+                                                    <div class="notification-content"><i class="fa fa-envelope bg-green"></i>You have 6 new messages </div>
+                                                    <div class="notification-time"><small>4 minutes ago</small></div>
+                                                </div>
+                                            </a></li>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                                <div class="notification">
+                                                    <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                                                    <div class="notification-time"><small>4 minutes ago</small></div>
+                                                </div>
+                                            </a></li>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                                <div class="notification">
+                                                    <div class="notification-content"><i class="fa fa-upload bg-orange"></i>Server Rebooted</div>
+                                                    <div class="notification-time"><small>4 minutes ago</small></div>
+                                                </div>
+                                            </a></li>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                                <div class="notification">
+                                                    <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                                                    <div class="notification-time"><small>10 minutes ago</small></div>
+                                                </div>
+                                            </a></li>--%>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"><strong>view all notifications                                            </strong></a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Messages                        -->
+                                    <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">0</span></a>
+                                        <ul aria-labelledby="notifications" class="dropdown-menu">
+                                            <%-- <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                                <div class="msg-profile">
+                                                    <img src="../graficos/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
+                                                </div>
+                                                <div class="msg-body">
+                                                    <h3 class="h5">Jason Doe</h3>
+                                                    <span>Sent You Message</span>
+                                                </div>
+                                            </a></li>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                                <div class="msg-profile">
+                                                    <img src="../graficos/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
+                                                </div>
+                                                <div class="msg-body">
+                                                    <h3 class="h5">Frank Williams</h3>
+                                                    <span>Sent You Message</span>
+                                                </div>
+                                            </a></li>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                                <div class="msg-profile">
+                                                    <img src="../graficos/avatar-3.jpg" alt="..." class="img-fluid rounded-circle">
+                                                </div>
+                                                <div class="msg-body">
+                                                    <h3 class="h5">Ashley Wood</h3>
+                                                    <span>Sent You Message</span>
+                                                </div>
+                                            </a></li>--%>
+                                            <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"><strong>Read all messages    </strong></a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Logout    -->
+
+
+                                    <li class="nav-item">
+                                        <asp:LinkButton runat="server" CssClass="nav-link logout" OnClick="click_LogOut">Logout<i class="fa fa-sign-out"></i></asp:LinkButton></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                <div class="page-content d-flex align-items-stretch">
+                    <!-- Side Navbar -->
+                    <nav id="side_navbar" class="side-navbar">
+                        <!-- Sidebar Header-->
+                        <div class="sidebar-header d-flex align-items-center">
+                            <div style="display: flex;">
+                                <div class="avatar">
+                                    <img src="../<%= Session["foto"].ToString()%>" alt="..." class="img-fluid rounded-circle img-perfil">
+                                </div>
+                                <div class="title">
+                                    <h1 class="h4"><%= Session["nombres"].ToString()%> &nbsp;<%= Session["apellidos"].ToString()%></h1>
+                                    <p>Profecional</p>
+                                </div>
+                            </div>
+                            <div>
+                                <!--edit init-->
+
+                                <div class="nav-item dropdown">
+                                    <a class=" dropdown-toggle tongle-perfil" href="#" id="navbarDropdown" data-toggle="dropdown"></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#modalEditPerfil" href="#"><i class="fa fa-gear"></i>Perfil</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Acerca</a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!--edit fin -->
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Navidation Menus-->
+                        <span class="heading">Main</span>
+                        <ul class="list-unstyled">
+                            <li class=""><a href="HomeAdmin"><i class="fa fa-home"></i>Home</a></li>
+                            <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"><i class="fa fa-users"></i>Pacientes </a>
+                                <ul id="dashvariants" class="collapse list-unstyled">
+                                    <li><a href="GruposAll">Grupos</a></li>
+
+                                </ul>
+                            </li>
+                            <!-- <li><a href="tables.html"><i class="icon-grid"></i>Tables </a></li>-->
+
+                        </ul>
+                        <!--
+                        <span class="heading">Extras</span>
+                        <ul class="list-unstyled">
+                            <li><a href="viewResltados"><i class="icon-flask"></i>Demo </a></li>
+
+                        </ul>-->
+                    </nav>
+                    <div class="content-inner" style="width: 100%">
+                        <!-- Page Header-->
+                        <!--  <header class="page-header">
+                            <div class="container-fluid">
+                                <h2 class="no-margin-bottom">Dashboard</h2>
+                            </div>
+                        </header>-->
+                        <!--content page-->
+                        <div id="HTMLtoPDF">
+                            <asp:ContentPlaceHolder ID="ContenidoPages" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+
+                        <!-- Page Footer-->
+                        <footer class="main-footer">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p>Unach &copy; 2017-2019</p>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <p>Design by <i href="i" class="external">Ayungan    </i></p>
+                                        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        <!--fin footer-->
+                    </div>
+                </div>
+            </div>
+            <%--  <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            
+            <asp:UpdatePanel runat="server" ID="PerfilAll">
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="btnEditarPerdil1" />
+                </Triggers>
+                <ContentTemplate>--%>
+            <asp:Panel ID="Panel1" runat="server">
+                <%-- find de dashboard--%>
+
+                <!--modal edit perfil-->
+                <div class="modal fade" id="modalEditPerfil" tabindex="-1" role="dialog" aria-labelledby="modalEditPerfilLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalEditPerfilLabel">Editar Perfil</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <div class="avatar center-contenido">
+                                    <asp:Image ID="ImagePerfil" CssClass="img-fluid rounded-circle fotoEdit" runat="server" />
+                                    <asp:FileUpload ID="FileUploadFotoPerfil" runat="server" />
+                                </div>
+                                <br />
+                                <br />
+                                <div class="form-group">
+                                    <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Cedula</p>
+                                    <asp:TextBox ID="register_cedula" runat="server" CssClass="input-material" required=""></asp:TextBox>
+
+                                </div>
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Nombres</p>
+                                                <asp:TextBox ID="register_nombres" runat="server" CssClass="input-material" required=""></asp:TextBox>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Apellidos</p>
+                                                <asp:TextBox ID="register_apellidos" runat="server" CssClass="input-material" required=""></asp:TextBox>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Sexo</p>
+                                                <asp:ObjectDataSource ID="ObjectDataSourceSexo" runat="server" SelectMethod="Mostrar" TypeName="LogicaNegocio.SexoLN"></asp:ObjectDataSource>
+                                                <asp:DropDownList ID="DropDownListSexo" runat="server" DataSourceID="ObjectDataSourceSexo" DataTextField="descrpcion" DataValueField="id_sexo">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Formación Profecional</p>
+                                                <asp:ObjectDataSource ID="ObjectDataSourceFormacionProfecional" runat="server" SelectMethod="Mostrar" TypeName="LogicaNegocio.FormacionProfecionalLN"></asp:ObjectDataSource>
+                                                <asp:DropDownList ID="DropDownListFormacionProfecional" runat="server" DataSourceID="ObjectDataSourceFormacionProfecional" DataTextField="descrpcion" DataValueField="id_formacionProfecional">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Especialidad</p>
+                                                <asp:ObjectDataSource ID="ObjectDataSourceEspecialidad" runat="server" SelectMethod="Mostrar" TypeName="LogicaNegocio.EspecialidadLN"></asp:ObjectDataSource>
+                                                <asp:DropDownList ID="DropDownListEspecialidad" runat="server" DataSourceID="ObjectDataSourceEspecialidad" DataTextField="descrpcion" DataValueField="id_especialidad">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Nacionalidad</p>
+                                                <asp:ObjectDataSource ID="ObjectDataSourceNacionalidad" runat="server" SelectMethod="Mostrar" TypeName="LogicaNegocio.NacionalidadLN"></asp:ObjectDataSource>
+                                                <asp:DropDownList ID="DropDownListNacionalidad" runat="server" DataSourceID="ObjectDataSourceNacionalidad" DataTextField="descrpcion" DataValueField="id_nacionalidad">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Autoidentificación</p>
+                                                <asp:ObjectDataSource ID="ObjectDataSourceAutoidentificación" runat="server" SelectMethod="Mostrar" TypeName="LogicaNegocio.AutoidetificacionLN"></asp:ObjectDataSource>
+                                                <asp:DropDownList ID="DropDownListAutoidentificación" runat="server" DataSourceID="ObjectDataSourceAutoidentificación" DataTextField="descrpcion" DataValueField="id_autoidetificacion">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Codigo MPS</p>
+                                                <asp:ObjectDataSource ID="ObjectDataSourceCodigoMPS" runat="server" SelectMethod="Mostrar" TypeName="LogicaNegocio.CodigoMPSLN"></asp:ObjectDataSource>
+                                                <asp:DropDownList ID="DropDownListCodigoMPS" runat="server" DataSourceID="ObjectDataSourceCodigoMPS" DataTextField="descrpcion" DataValueField="id_codigoMPS">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Fecha Nacimiento</p>
+                                                <asp:TextBox ID="register_fechaNacimiento" type="date" runat="server" CssClass="input-material" required=""></asp:TextBox>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <p style="font-weight: 300; color: #aaa; font-size: 0.8em; color: #2b90d9;" class="label-material">Password</p>
+                                                <asp:TextBox ID="register_passowrd" runat="server" CssClass="input-material" required="" Type="password"></asp:TextBox>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <asp:LinkButton ID="btnEditarPerdil1" OnClick="btnEditarPerdil_Click" CssClass="btn btn-primary" runat="server" Text="Guardar" />
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--fin modal edit perfil-->
+                <%--  modal acerca--%>
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Acerca </h4>
+                            </div>
+                            <div class="modal-body">
+                                <h2>System Plantograma</h2>
+                                <p>Sistema para analizar la huella plantal .</p>
+                                <span>Version 1.0</span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <%--  fin modal acerca--%>
+            </asp:Panel>
+            <%-- </ContentTemplate>
+            </asp:UpdatePanel>--%>
+        </div>
+
+
+    </form>
+
+
+</body>
+</html>

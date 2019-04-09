@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Autentificacion.master.cs" Inherits="plantograma.Autentificacion" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Autentication</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+   
+    <!-- Google fonts - Roboto -->
+    <!-- theme stylesheet-->
+    <link href="css/style.blue.css" rel="stylesheet" />
+    <!--<link href="css/style.sea.css" rel="stylesheet" />-->
+    <!--  <link href="css/style.pink.css" rel="stylesheet" />-->
+    <!--<link href="css/style.green.css" rel="stylesheet" />-->
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="graficos/favicon.ico">
+    <!-- Font Awesome CDN-->
+    <!-- you can replace it by local Font Awesome-->
+
+    <!-- Font Icons CSS-->
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/tether.min.js"></script>
+    <script src="../js/jquery.cookie.js"> </script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/front.js"></script>
+     <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <%-- alertas --%>
+    <%--   <script src="../js/sweetalert.min2.js"></script>--%>
+    <script src="../js/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/app/appAlerts.js"></script>
+
+    <%--alertas fin--%>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="page login-page">
+                <div class="container d-flex align-items-center">
+                    <div class="form-holder has-shadow">
+                        <div class="row">
+                            <!-- Logo & Information Panel-->
+                            <div class="col-lg-6" style="text-align: center">
+                                <div class="info d-flex align-items-center">
+                                    <div class="content">
+                                        <div class="logo">
+                                            <h1>Plantograma</h1>
+                                        </div>
+                                        <p>Este Sistema permite analizar la huella plantal de marea facil sencilla y rapida .</p>
+                                        <img src="../graficos/huella2.png" width="100%" height="100%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form Panel    -->
+                            <asp:ContentPlaceHolder ID="content_autentification" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyrights text-center">
+                    <p>Design by <a href="" class="external">Ayungan</a></p>
+
+                </div>
+
+            </div>
+    </form>
+
+
+    <%--<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+    <!---->
+    <script>
+        (function (b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+                function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+            e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
+    </script>--%>
+</body>
+</html>

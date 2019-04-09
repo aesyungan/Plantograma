@@ -1,0 +1,541 @@
+﻿#focuss:hover {
+    background-color: red;
+}
+
+#focuss {
+    color: white;
+    background-color: #222222;
+}
+
+#imgselect {
+    border-radius: 50%;
+}
+
+#contenidotodo {
+    position: relative;
+    background-color: #fff;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+#item {
+    cursor: pointer;
+    overflow: auto;
+    padding: 1%;
+    color: white;
+    position: relative;
+    margin: 10px;
+    border-radius: 2%;
+    background-color: white;
+    width: 16em;
+    display: inline-block;
+    vertical-align: text-top;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
+}
+
+#item_select {
+    overflow: auto;
+    padding: 2%;
+    color: white;
+    position: relative;
+    margin: 10px;
+    border-radius: 2%;
+    background-color: yellow;
+    width: 200px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+#item:hover {
+    background-color: #f6f6f6;
+}
+
+#item_todo {
+    padding: 1%;
+    text-align: center;
+    display: inline;
+    /*background-color:brown;*/
+}
+
+#item_todo_row {
+    padding: 1%;
+    float: left;
+    color: #656464;
+    /*background-color:maroon;*/
+}
+
+#item_todo_row_codigo {
+    border-radius: 100%;
+    background-color: #58584f;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    margin: -19%;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 12%;
+    padding-left: 14%;
+    font-size: 1em;
+}
+
+#item_botones {
+    border: 10px 0px 0px 0px;
+    border-top: 2px dashed #888585;
+    padding: 4%;
+}
+
+/*Mensajes de dialogo css*/
+.alertTodo {
+    display: none;
+    position: fixed;
+    background-color: rgba(49, 47, 47,0.8);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    padding: 14%;
+}
+
+.alertTodo_show {
+    display: inline;
+}
+
+.contenidoForm {
+    background-color: #ffffff;
+    padding: 2%;
+    box-shadow: 15px 12px 20px #908f8f,-15px -12px 20px #908f8f;
+    border-radius: 3em;
+}
+
+
+.center {
+    text-align: center;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    width: 2.5em;
+    text-align: center;
+    padding: 0;
+    height: 2.5em;
+    padding-top: 0.6em;
+}
+.btn-circle2 {
+    border-radius: 50%;
+    width: 2.5em;
+    text-align: center;
+    padding: 0;
+    height: 2.5em;
+    /*padding-top: 0.6em;*/
+}
+
+.bar-menu {
+    background: white;
+    margin: 1% 1% 0 1%;
+    padding: 1%;
+}
+
+.item-long-cli {
+    min-width: 30%;
+    overflow: hidden;
+}
+
+.item-max {
+    max-width: 90%;
+}
+
+.WindowsStyle .ajax__combobox_textboxcontainer input {
+    border: solid 1px #7F9DB9;
+    border-right: 0px none;
+    padding: 1px 0px 0px 5px;
+    font-size: 13px;
+    height: 21px;
+}
+
+.WindowsStyle .ajax__combobox_buttoncontainer button {
+    border: 0px,none;
+    background-image: url(../images/windows-arrow.gif);
+}
+
+.WindowsStyle.ajax__combobox_itemlist {
+    margin: 0px;
+    padding: 0px;
+    cursor: default;
+    list-style-type: none;
+    text-align: left;
+    border: solid 1px ButtonShadow;
+    background-color: Window;
+}
+
+    .WindowsStyle .ajax__combobox_itemlist li {
+        white-space: nowrap;
+        padding: 0 3px 0 2px;
+    }
+
+.ajax__combobox_itemlist {
+    margin: 0px;
+    padding: 0px;
+    cursor: default;
+    list-style-type: none;
+    text-align: right;
+    border: solid 1px ButtonShadow;
+    background-color: Window;
+    font-weight: normal;
+    font-size: 8pt;
+    color: black;
+    font-family: Arial, helvetica, 'MS Sans Serif';
+    width: 100%;
+}
+
+.content-all-user {
+    display: grid;
+}
+
+.center-contenido {
+    justify-content: center;
+    text-align: -webkit-center;
+    text-align: center;
+}
+
+.list-view-item {
+    display: block;
+    max-height: 18em;
+    overflow-y: scroll;
+}
+
+.list-user {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.row-list {
+    border-bottom: 1px solid #eeeeee;
+    height: 4em;
+    width: 100%;
+    padding: 1px 2% 0 2% !important;
+}
+
+.row-list-select {
+    border-bottom: 1px solid #eeeeee;
+    height: 4em;
+    width: 100%;
+    padding: 1px 2% 0 2% !important;
+    background: #eeeeee !important;
+}
+
+.row-list:hover {
+    background: #f7f7f7 !important;
+}
+
+.span-dato {
+    font-size: 0.9em;
+    color: #acb4bf;
+}
+
+.span-dato-cedula {
+    font-size: 0.8em;
+    color: #acb4bf;
+}
+
+.item-todo-class {
+    display: flex;
+    align-items: center;
+}
+
+.span-name {
+    max-width: 7em;
+    overflow: hidden;
+}
+
+.pannel-center {
+}
+
+.label-nombre {
+    float: left;
+}
+
+.label-fecha {
+    float: right;
+}
+
+.img-usuario {
+    width: 4em;
+    margin-bottom: -2.9em;
+    border-radius: 50%;
+    height: 4em;
+}
+
+.allData-plantograma {
+    margin: 0.2em 1% 1% 1%;
+    height: 100%;
+    min-height: 25em;
+    background: white;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+
+.div-huellas {
+    text-align: center;
+    margin-right: 2%;
+    display: block;
+    padding: 1%;
+    min-height: 45em;
+}
+
+    .div-huellas .huellas {
+        min-height: 25em;
+        width: 100%;
+        box-shadow: 1px 1px 6px #ccc, -1px -1px 6px #ccc;
+        display: -webkit-box;
+    }
+
+
+
+        .div-huellas .huellas .derecho {
+            display: -webkit-inline-box;
+            vertical-align: top;
+            width: 49%;
+            padding: 1%;
+            text-align: -webkit-center;
+        }
+
+        .div-huellas .huellas .izquierdo {
+            display: -webkit-inline-box;
+            vertical-align: top;
+            width: 49%;
+            padding: 1%;
+            text-align: -webkit-center;
+            box-shadow: 2px 0 5px -2px #ccc;
+        }
+
+    .div-huellas .botones {
+        width: 100%;
+        min-height: 3em;
+        padding: 1%;
+    }
+
+.img-izquierdo {
+    height: 100%;
+}
+
+.img-derecho {
+    height: 100%;
+}
+
+.humbral-huella {
+    display: inline-block;
+    height: 2em;
+    width: 100%;
+}
+
+.div-resultado {
+    background: blue;
+    width: 28%;
+}
+
+.inputUmbral2 {
+    max-width: 2em;
+    border-radius: 50%;
+    background: white;
+    box-shadow: none;
+    border-top: 1px solid #c9c8c8;
+    border-left: 1px solid #c9c8c8;
+    box-shadow: -1px -1px #c9c8c8;
+    font-family: inherit;
+    color: #656464;
+    font-weight: initial;
+    text-align: center;
+}
+
+.btn-analizar {
+    vertical-align: bottom;
+    border-radius: 50%;
+    height: 2.6em;
+}
+
+.btn-analizar2 {
+    vertical-align: bottom;
+    border-radius: 50%;
+    height: 2.6em;
+    float: right;
+}
+
+.datos-huellas {
+    width: 27%;
+    min-height: 50em;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .datos-huellas .derecho {
+        width: 100%;
+        height: 25em;
+        text-align: center;
+        text-align: -webkit-center;
+    }
+
+    .datos-huellas .izquierdo {
+        width: 100%;
+        height: 25em;
+        text-align: center;
+        text-align: -webkit-center;
+    }
+
+.datos-analizados {
+    width: 71%;
+    min-height: 60em;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .datos-analizados .derecho {
+        width: 48%;
+        min-height: 50em;
+        background: white;
+        position: relative;
+        display: inline-block;
+        float: right;
+    }
+
+        .datos-analizados .derecho .datos {
+            width: 100%;
+            background: white;
+        }
+
+        .datos-analizados .derecho .huella-analizado {
+            height: 38em;
+            background: white;
+        }
+
+    .datos-analizados .izquierdo {
+        width: 48%;
+        min-height: 50em;
+        background: white;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+        .datos-analizados .izquierdo .datos {
+            width: 100%;
+            background: white;
+        }
+
+        .datos-analizados .izquierdo .huella-analizado {
+            height: 38em;
+            background: white;
+        }
+
+.progres-bar {
+    width: 100%;
+    margin-top: -4.5em;
+    position: fixed;
+    text-align: center;
+    z-index: 1111;
+    height: 100%;
+    padding-top: 20%;
+    background: rgba(95, 95, 95, 0.6);
+}
+
+    .progres-bar .bar {
+    }
+
+    .progres-bar .bar-data {
+        margin-left: -9em;
+    }
+
+.img-huella {
+    height: 18em;
+}
+
+.btn-edit {
+    cursor: pointer;
+}
+
+    .btn-edit:hover {
+        color: red !important;
+    }
+
+.color-white {
+    color: white !important;
+}
+
+#myModalEditDerecho {
+}
+
+    #myModalEditDerecho .modal-dialog {
+        margin-top: 5em;
+    }
+
+.content-left {
+    float: left;
+}
+
+.mySelect {
+    padding: .2em 0;
+    font-size: 1em;
+}
+
+.tongle-perfil {
+    background: rgba(255, 255, 255, 0) !important;
+}
+
+#modalEditPerfil {
+}
+
+    #modalEditPerfil .modal-dialog {
+        margin-top: 10%;
+    }
+
+.fotoEdit {
+    width: 7em;
+    height: 7em;
+}
+
+.img-perfil {
+    height: 100% !important;
+}
+/* para maxinozavion de todo  */
+@media screen and (min-width: 769px) {
+    .alertTodo {
+        position: fixed;
+        background-color: rgba(49, 47, 47,0.8);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        padding: 6% 13% 17% 36%;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .alertTodo {
+        position: fixed;
+        background-color: rgba(49, 47, 47,0.8);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        padding: 6% 13% 17% 36%;
+    }
+}
+
+.chat-app-pie {
+    width: 100% !important;
+}
+
+@media screen and (max-width: 760px) {
+
+
+    .datos-huellas {
+        display: block;
+        width: 100%;
+    }
+
+    .datos-analizados {
+        display: block;
+        width: 100%;
+    }
+}
