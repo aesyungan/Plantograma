@@ -64,6 +64,9 @@
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
@@ -144,6 +147,7 @@
     <Content Include="icons-reference\fonts\dashboard.woff" />
     <Content Include="Autentificacion.Master" />
     <Content Include="AdminDashboard.Master" />
+    <Content Include="WebService1.asmx" />
     <Fakes Include="Fakes\itextsharp.fakes" />
     <Content Include="img\avatar-4.jpg" />
     <Content Include="img\avatar-5.jpg" />
@@ -360,6 +364,10 @@
     </Compile>
     <Compile Include="views\viewResltados.aspx.designer.cs">
       <DependentUpon>viewResltados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
